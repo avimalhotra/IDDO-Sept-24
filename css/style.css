@@ -30,6 +30,8 @@ html{
     font-size:15px;
     --ff: proxima, sans-serif;
     --red:#ca3c3c;
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
 }
 
 body{
@@ -60,10 +62,12 @@ body{
 .flex{ display: flex;}
 .align-center{ align-items: center;}
 .justify-space-bet{ justify-content: space-between;}
+.justify-center{ justify-content: center;}
 .gap-y-60{ row-gap: 4rem;}
+.img-resp{ max-width: 100%; height: auto;}
 
 /* custom */
-header{ background: #000; color: #fff; position: sticky; top: 0;}
+header{ background: #000; color: #fff; position: sticky; top: 0; z-index: 1;}
 h1{ font-size: 30px; }
 h1 a{ color: inherit; line-height: 80px; display: inline-block;}
 nav ul{ margin-left: -20px;}
@@ -90,6 +94,43 @@ h2{ font-size: 72px; line-height: 0.833; border-bottom: 10px solid; margin-botto
 .wrap-4{ background: #fff; color: var(--red); font-size: 36px ; line-height: 10rem; text-align: center;}
 
 
+.wrap-5{ background: #ebebeb; padding: 100px 0 140px; color: #363636;}
+.wrap-5 .btn{ margin: 0 10px 4rem 0; }
+.btn.active{ background: var(--red); color: #fff; border-color: var(--red);}
+.work{ margin-bottom: 2rem; position: relative; overflow: hidden; }
+.work .caption{ position: absolute; background: #fff; left: 0; right: 0; bottom: -50px; text-align: center; padding: 20px 0; opacity: 0; visibility: hidden; transition: 400ms;}
+.work .caption h3{ color: var(--red); font-size: 18px; text-transform: uppercase; line-height: 40px;}
+.work .caption p{ font-size: 14px; font-weight: 100; color: #898989; line-height: 20px;}
+.work:hover .caption{ opacity: 1; visibility: visible; bottom: 0;}
+.seemore{ border: none; background: none; color: var(--red); font-size: 36px; }
+.work .img-resp{ width: 100%;}
+
+
+
+.wrap-6{ padding: 4rem 0 2rem; background: #666; color: #fff;}
+.reviews{ text-align: center; }
+.review{ display: none; }
+.review.active{ display: block }
+.review b{ display: block;}
+.review blockquote q{ font-size: 36px; line-height:1.14; font-weight: 100;}
+.review blockquote img{ margin: 12px 0 10px;}
+.pager{ margin-top: 2rem;}
+.pager li{ margin: 0 5px;}
+.pager a{ display: block; border: 2px solid; color: #fff; width: 10px; height: 10px; border-radius: 50%;}
+.pager a.active{background: #fff;}
+
+
+.wrap-7{ background: #fff; padding: 100px 0 140px; color: #363636;}
+.team{ margin: 50px 0 33px; position: relative;}
+.member{ margin: 50px 0 0 100px;}
+.member h3{ color: var(--red); font-size: 18px; margin-bottom: 10px; }
+.member small{ color: #898989; font-size: 14px; font-weight: 100;}
+.member p{ font-size: 14px; line-height:1.57; font-weight: 100; margin-top: 20px;}
+.social{ position: absolute; left: 140px; top: 60px;}
+.social li{ margin-right: 10px;}
+.social a{ display: block; width: 50px; line-height: 50px; background: var(--red); color: #fff; border-radius: 50%; text-align: center; font-size: 24px;}
+
+
 
 /* responsive */
 @media screen and (max-width:1220px){
@@ -102,6 +143,10 @@ h2{ font-size: 72px; line-height: 0.833; border-bottom: 10px solid; margin-botto
     .col-t-6{ flex-basis: 50%; max-width: 50%;}
     .col-t-12{ flex-basis: 100%; max-width: 100%;}
     .banner p{ font-size: 3rem; }
+    .member{ margin-left: 50px;}
+    .social{ top: 0; left: auto; right: 0; }
+    .social ul{ flex-flow: column; }
+    .social ul li{ margin: 0 0 10px;}
 }
 
 
@@ -111,6 +156,8 @@ h2{ font-size: 72px; line-height: 0.833; border-bottom: 10px solid; margin-botto
     .col-m-6{ flex-basis: 50%; max-width: 50%; }
     .menu{ display: inline-block;}
     h2{ font-size: 60px;}
+    .review blockquote q{ font-size: 30px;}
+    
 }
 
 @media screen and (max-width:460px){
@@ -118,4 +165,5 @@ h2{ font-size: 72px; line-height: 0.833; border-bottom: 10px solid; margin-botto
     .col-p-6{ flex-basis: 50%; max-width: 50%; }
     .col-p-12{ flex-basis: 100%; max-width: 100%; }
     .banner .flex{ flex-flow: column;}
+    .review blockquote q{ font-size: 24px;}
 }
