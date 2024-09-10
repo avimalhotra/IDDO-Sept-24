@@ -1,11 +1,11 @@
-*,::before,::after{ margin: 0; box-sizing: border-box; }
+*,::before,::after{ margin: 0; box-sizing: border-box;}
 a{text-decoration: none;}
 button{ padding: 0; cursor: pointer;}
 :disabled{ cursor: not-allowed;}
 img{ vertical-align: bottom;}
 iframe{ border: none;}
 ul{ list-style: none; padding: 0;}
-label{ display: inline-block;}
+label{ display: block;}
 
 @font-face {
     font-family: proxima;
@@ -132,6 +132,59 @@ h2{ font-size: 72px; line-height: 0.833; border-bottom: 10px solid; margin-botto
 
 
 
+.wrap-8{ background: #666; color: #fff; padding: 85px 0 0 0; text-align: center;}
+.wrap-8 span.fa{ font-size: 72px;}
+.wrap-8 p{font:100 72px var(--ff);}
+.wrap-8 b{ font-size: 18px; display: inline-block; margin-bottom: 75px;}
+
+
+
+.wrap-9{ background: #fff; padding: 100px 0 140px; color: #363636;}
+canvas{ background: #ddd; max-width: 100%; height: auto; margin-top: 50px;}
+.accordion{ margin-top: 50px;}
+.accordion li{ margin-bottom: 10px;}
+.accordion a{ display: block; border: 1px solid #ebebeb; padding: 1rem; border-radius: 10px; color: #898989; }
+.accordion a span{ margin-right: 20px;}
+.accordion a::after{ content: '+'; float: right;}
+.accordion p{ font:100 14px/22px var(--ff); margin: 20px; display: none; }
+.accordion a.active{ color: var(--red);}
+.accordion a.active::after{ content: '-';}
+.accordion li:first-child p{ display: block;}
+
+
+.wrap-10{ background:var(--red); padding: 23px 0 22px; }
+.wrap-10 input{ width: 370px; background: none; border: none; height: 35px; color: #fff; font: 100 36px var(--ff);}
+.wrap-10 input::placeholder{color: #fff; }
+.wrap-10 input:focus{ outline: none;}
+.wrap-10 button{ background: #fff; }
+
+
+.wrap-11{ background: #7f7f7f; padding: 28px 0 0 0;}
+.box{ margin-bottom: 27px; background: #a6a6a6; color: #fff; text-align: center; line-height: 95px; font-size: 18px; }
+
+
+
+.wrap-12{ background: #ebebeb; padding: 100px 0 140px; color: #363636;}
+.wrap-12 address{ color: #898989; font: 15px/30px var(--ff); }
+.soc{margin: 20px 0; }
+.soc li{ margin-right: 20px; }
+.soc a{ color: var(--red);}
+.wrap-12 label{ border: 2px solid; color: #363636; padding: 17px; margin: 1rem 0;}
+.wrap-12 input{ border: none; background: none;}
+.wrap-12 :is(input, textarea):focus{ outline: none; }
+.wrap-12 textarea{border: none; background: none; resize: none; vertical-align: top; height: 42px; }
+.wrap-12 button{ margin: 1rem 0; display: block; width: 100%; height: 80px; background: #fff;  border: none; border-radius: 10px; font: 16px var(--ff); color: var(--red);}
+.wrap-12 button span.fa{ font-size: 36px; vertical-align: middle;}
+.wrap-12 label:focus-within{ border-color: var(--red); }
+
+
+
+.wrap-13{ background: #252525; padding: 50px 0 25px; color: #fff; text-align: center;}
+.wrap-13 h3{ font-size: 24px;}
+.wrap-13 button{ border: none; background: none; color: var(--red); font-size: 24px;}
+
+
+
 /* responsive */
 @media screen and (max-width:1220px){
     html{ font-size: 13px;}
@@ -142,11 +195,14 @@ h2{ font-size: 72px; line-height: 0.833; border-bottom: 10px solid; margin-botto
     .col-t-4{ flex-basis: 33.33%; max-width: 33.33%;}
     .col-t-6{ flex-basis: 50%; max-width: 50%;}
     .col-t-12{ flex-basis: 100%; max-width: 100%;}
+    .col-t-auto{ flex-basis: 20%; max-width: 20%;}
+    .col-t-hide{ display: none; }
     .banner p{ font-size: 3rem; }
     .member{ margin-left: 50px;}
     .social{ top: 0; left: auto; right: 0; }
     .social ul{ flex-flow: column; }
     .social ul li{ margin: 0 0 10px;}
+    .wrap-8 p{ font-size: 60px;}
 }
 
 
@@ -154,10 +210,12 @@ h2{ font-size: 72px; line-height: 0.833; border-bottom: 10px solid; margin-botto
     html{ font-size: 12px; }
     .collapse{ display: none;}
     .col-m-6{ flex-basis: 50%; max-width: 50%; }
+    .col-m-12{ flex-basis: 100%; max-width: 100%; }
     .menu{ display: inline-block;}
     h2{ font-size: 60px;}
     .review blockquote q{ font-size: 30px;}
-    
+    .wrap-8 p,.wrap-8 span.fa{ font-size: 50px;}
+    .col-t-auto{ flex-basis: 33.33%; max-width: 50%;}
 }
 
 @media screen and (max-width:460px){
@@ -166,4 +224,6 @@ h2{ font-size: 72px; line-height: 0.833; border-bottom: 10px solid; margin-botto
     .col-p-12{ flex-basis: 100%; max-width: 100%; }
     .banner .flex{ flex-flow: column;}
     .review blockquote q{ font-size: 24px;}
+    .wrap-10 input{ width: 240px; font-size: 24px;}
+    .col-t-auto{ flex-basis: 50%; max-width: 100%;}
 }
