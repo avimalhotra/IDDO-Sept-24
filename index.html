@@ -121,55 +121,55 @@
         </div>    
         <div class="row">
             <div class="col-4 col-t-6 col-p-12">
-                <div class="work">
+                <div class="work web">
                     <img src="img/work-1.webp" alt="work 1" width="370" height="370" loading="lazy" class="img-resp">
                     <div class="caption">
-                        <h3>Project Name</h3>
+                        <h3>Web Project Name</h3>
                         <p>Author Name | Date</p>
                     </div>
                 </div>
             </div>
             <div class="col-4 col-t-6 col-p-12">
-                <div class="work">
+                <div class="work web">
                     <img src="img/work-1.webp" alt="work 1" width="370" height="370" loading="lazy" class="img-resp">
                     <div class="caption">
-                        <h3>Project Name</h3>
+                        <h3>Web Project Name</h3>
                         <p>Author Name | Date</p>
                     </div>
                 </div>
             </div>
             <div class="col-4 col-t-6 col-p-12">
-                <div class="work">
+                <div class="work web">
                     <img src="img/work-1.webp" alt="work 1" width="370" height="370" loading="lazy" class="img-resp">
                     <div class="caption">
-                        <h3>Project Name</h3>
+                        <h3>Web Project Name</h3>
                         <p>Author Name | Date</p>
                     </div>
                 </div>
             </div>
             <div class="col-4 col-t-6 col-p-12">
-                <div class="work">
+                <div class="work brand">
                     <img src="img/work-1.webp" alt="work 1" width="370" height="370" loading="lazy" class="img-resp">
                     <div class="caption">
-                        <h3>Project Name</h3>
+                        <h3>Branding Project Name</h3>
                         <p>Author Name | Date</p>
                     </div>
                 </div>
             </div>
             <div class="col-4 col-t-6 col-p-12">
-                <div class="work">
+                <div class="work brand">
                     <img src="img/work-1.webp" alt="work 1" width="370" height="370" loading="lazy" class="img-resp">
                     <div class="caption">
-                        <h3>Project Name</h3>
+                        <h3>Branding Project Name</h3>
                         <p>Author Name | Date</p>
                     </div>
                 </div>
             </div>
             <div class="col-4 col-t-6 col-p-12">
-                <div class="work">
+                <div class="work brand">
                     <img src="img/work-1.webp" alt="work 1" width="370" height="370" loading="lazy" class="img-resp">
                     <div class="caption">
-                        <h3>Project Name</h3>
+                        <h3>Branding Project Name</h3>
                         <p>Author Name | Date</p>
                     </div>
                 </div>
@@ -401,8 +401,74 @@
     <div class="container">
         <h3>IDDO</h3>
         <p>&copy; 2014</p>
-        <button><span class="fa fa-chevron-up"></span></button>
+        <button class="gototop"><span class="fa fa-chevron-up"></span></button>
     </div>
-</footer>            
+</footer>   
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+"use strict";
+$(function(){
+    $("#portfolio .btn").click(function(){
+
+        $("#portfolio .btn").removeClass("active");
+        $(this).addClass("active");
+
+        if( $(this).text()=="All" ){
+            $(".work").fadeIn();
+        }
+        else if( $(this).text()=="Website" ){
+            $(".work").fadeOut(0);
+            $(".web").fadeIn();
+        }
+        else{
+            $(".work").fadeOut(0);
+            $(".brand").fadeIn();
+        }
+    });
+
+
+    $(".accordion a").click(function(e){
+        e.preventDefault();
+        $(".accordion a").removeClass("active");
+        $(this).addClass("active");
+
+        if( $(this).next("p").is(":hidden") ){
+            $(".accordion p").slideUp();
+            $(this).next("p").slideDown();
+        }
+        /* else{
+            $(this).removeClass("active");
+            $(this).next("p").slideUp();
+        } */
+
+    });
+
+
+    $(".gototop").click(function(){        
+        $("html").animate({
+            scrollTop:0
+        })
+    });
+
+
+    $(".menu").click(function(){
+        $(this).toggleClass("active");
+        $(".collapse").slideToggle();
+    });
+
+
+   if(screen.width<768){
+    $("nav a").click(function(){
+        $(".collapse").slideUp();
+        $(".menu").removeClass("active");
+    })
+   }
+
+
+    
+
+});
+</script>
 </body>
 </html>
