@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IDDO</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.css" media="print" onload="this.media='screen'">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="print" onload="this.media='screen'">
 </head>
 <body id="home">
 <header class="wrap-1">
@@ -46,7 +48,7 @@
     <div class="container">
         <div class="row">
             <div class="col-4 col-t-6 col-p-12">
-                <h2>OUR SERVICES.</h2>
+                <h2 data-aos="fade-up">OUR SERVICES.</h2>
             </div>
             <div class="col-8 col-t-12">
                 <div class="row gap-y-60">
@@ -115,7 +117,7 @@
     <div class="container">
         <div class="row">
             <div class="col-4 col-t-6 col-p-12">
-                <h2>OUR WORKS.</h2>
+                <h2 data-aos="fade-left">OUR WORKS.</h2>
                 <button class="btn active">All</button><button class="btn">Website</button><button class="btn">Branding</button>
             </div>
         </div>    
@@ -184,22 +186,38 @@
             <div class="col-2"></div>
             <div class="col-8 col-t-12">
                 <div class="reviews">
-                    <div class="review active">
+                    <div class="review">
                         <blockquote>
                             <q>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, corporis laborum eos, ducimus repellat ad sit.</q>
                             <footer>
                                 <img src="img/jack.webp" alt="jack efron" width="70" height="70" loading="lazy">
-                                <b>JACK EFRON</b>
+                                <b>JACK EFRON 1</b>
                             </footer>
                         </blockquote>
                     </div>
-                    <div class="review">2</div>
-                    <div class="review">3</div>
-                    <ul class="pager flex justify-center">
+                    <div class="review">
+                        <blockquote>
+                            <q>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, corporis laborum eos, ducimus repellat ad sit.</q>
+                            <footer>
+                                <img src="img/jack.webp" alt="jack efron" width="70" height="70" loading="lazy">
+                                <b>JACK EFRON 2</b>
+                            </footer>
+                        </blockquote>
+                    </div>
+                    <div class="review">
+                        <blockquote>
+                            <q>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, corporis laborum eos, ducimus repellat ad sit.</q>
+                            <footer>
+                                <img src="img/jack.webp" alt="jack efron" width="70" height="70" loading="lazy">
+                                <b>JACK EFRON 3</b>
+                            </footer>
+                        </blockquote>
+                    </div>
+                    <!-- <ul class="pager flex justify-center">
                         <li><a aria-label="1" class="active" href=""></a></li>
                         <li><a aria-label="2" href=""></a></li>
                         <li><a aria-label="3" href=""></a></li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
         </div>
@@ -405,10 +423,25 @@
     </div>
 </footer>   
 
+<div class="popupform">
+    <button class="close"><span class="fa fa-times"></span></button>
+    <form>
+        <label>Name: <input type="text" required> </label>
+        <label>Email: <input type="email" required> </label>
+        <label>Phone: <input type="tel" required> </label>
+        <button class="btn">Sign Up</button>
+    </form>
+</div>
+
+
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.js"></script>
+
 <script>
 "use strict";
 $(function(){
+    AOS.init();
     $("#portfolio .btn").click(function(){
 
         $("#portfolio .btn").removeClass("active");
@@ -464,6 +497,28 @@ $(function(){
         $(".menu").removeClass("active");
     })
    }
+
+
+   $(".signup").on("click",function(){
+        $("body").append(`<div class="overlay"></div>`);
+        $("body").append(`<div class="popup"></div>`);
+        $(".popup").append($(".popupform").html());
+        $(".popup input:eq(0)").focus();
+
+        $(".close").click(function(){$(".overlay,.popup").remove()});
+        $(window).keyup(function(e){ if(e.which==27){$(".overlay,.popup").remove()}})
+
+
+   });
+
+
+   /* plugin */
+   $(".reviews").bxSlider({
+    controls:false,
+    auto:true,
+    pause:5000,
+    autoHover:true
+   });
 
 
     

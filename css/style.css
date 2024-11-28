@@ -113,15 +113,18 @@ h2{ font-size: 72px; line-height: 0.833; border-bottom: 10px solid; margin-botto
 
 .wrap-6{ padding: 4rem 0 2rem; background: #666; color: #fff;}
 .reviews{ text-align: center; }
-.review{ display: none; }
-.review.active{ display: block }
+/* .review{ display: none; }
+.review.active{ display: block } */
 .review b{ display: block;}
 .review blockquote q{ font-size: 36px; line-height:1.14; font-weight: 100;}
-.review blockquote img{ margin: 12px 0 10px;}
-.pager{ margin-top: 2rem;}
+.review blockquote img{ margin: 12px auto 10px;}
+/* .pager{ margin-top: 2rem;}
 .pager li{ margin: 0 5px;}
 .pager a{ display: block; border: 2px solid; color: #fff; width: 10px; height: 10px; border-radius: 50%;}
-.pager a.active{background: #fff;}
+.pager a.active{background: #fff;} */
+.wrap-6 .bx-wrapper{ background: none; border: none; box-shadow: 0 0;}
+.wrap-6 .bx-wrapper .bx-pager.bx-default-pager a{ border: 2px solid #fff;}
+.wrap-6 .bx-wrapper .bx-pager.bx-default-pager a.active,.wrap-6  .bx-wrapper .bx-pager.bx-default-pager a:focus,.wrap-6  .bx-wrapper .bx-pager.bx-default-pager a:hover{ background: #fff; }
 
 
 .wrap-7{ background: #fff; padding: 100px 0 140px; color: #363636;}
@@ -187,6 +190,14 @@ canvas{ background: #ddd; max-width: 100%; height: auto; margin-top: 50px;}
 .wrap-13 h3{ font-size: 24px;}
 .wrap-13 button{ border: none; background: none; color: var(--red); font-size: 24px;}
 
+
+.popupform{ display: none;}
+.overlay{ position: fixed; inset: 0; background: #0009; z-index: 2; }
+.popup{ position: fixed; left: 50%; top: 100px; transform: translateX(-50%); background: #fff; padding: 10px; z-index: 3; border-radius: 5px;}
+.popup label{ margin: 2rem 0; }
+.popup input{ float: right; margin-left: 10px; height: 30px; width: 200px; padding: 5px;}
+.close{ position: absolute; right: 5px; top: 5px; border: none; background: none; color: var(--red); font-size: 20px; }
+.popup .btn{ margin: auto; display: block; }
 
 
 /* responsive */
