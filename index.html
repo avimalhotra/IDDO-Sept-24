@@ -6,6 +6,8 @@
     <title>IDDO</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" >
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.14.1/themes/base/jquery-ui.min.css" integrity="sha512-TFee0335YRJoyiqz8hA8KV3P0tXa5CpRBSoM0Wnkn7JoJx1kaq1yXL/rb8YFpWXkMOjRcv5txv+C6UluttluCQ==" crossorigin="anonymous" referrerpolicy="no-referrer"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.17/jquery.bxslider.min.css">
 </head>
 <body id="home">
 <header class="wrap-1">
@@ -39,6 +41,7 @@
         <div class="flex align-center">
             <div><button><span class="fa fa-play-circle-o"></span></button></div>
             <div><p>Let me show you a few things</p><a href="">Click to play video</a></div>
+            <!-- <input type="text" id="date"> -->
         </div>
     </div>
 </div>
@@ -189,17 +192,34 @@
                             <q>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, corporis laborum eos, ducimus repellat ad sit.</q>
                             <footer>
                                 <img src="img/jack.webp" alt="jack efron" width="70" height="70" loading="lazy">
-                                <b>JACK EFRON</b>
+                                <b>JACK EFRON 1</b>
                             </footer>
                         </blockquote>
                     </div>
-                    <div class="review">2</div>
-                    <div class="review">3</div>
-                    <ul class="pager flex justify-center">
+                    <div class="review">
+                        <blockquote>
+                            <q>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, corporis laborum eos, ducimus repellat ad sit.</q>
+                            <footer>
+                                <img src="img/jack.webp" alt="jack efron" width="70" height="70" loading="lazy">
+                                <b>JACK EFRON 2</b>
+                            </footer>
+                        </blockquote>
+                    </div>
+                    <div class="review">
+                        <blockquote>
+                            <q>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, corporis laborum eos, ducimus repellat ad sit.</q>
+                            <footer>
+                                <img src="img/jack.webp" alt="jack efron" width="70" height="70" loading="lazy">
+                                <b>JACK EFRON 3</b>
+                            </footer>
+                        </blockquote>
+                    </div>
+                    
+                   <!--  <ul class="pager flex justify-center">
                         <li><a aria-label="1" class="active" href=""></a></li>
                         <li><a aria-label="2" href=""></a></li>
                         <li><a aria-label="3" href=""></a></li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
         </div>
@@ -403,9 +423,21 @@
         <p>&copy; 2014</p>
         <button class="gototop"><span class="fa fa-chevron-up"></span></button>
     </div>
-</footer>   
+</footer>  
+
+<div class="modelform">
+    <form>
+        <div class="mb"><label>Name: <input type="text" required></div>
+        <div class="mb"><label>Email: <input type="email" required></div>
+        <div class="mb"><label>Password: <input type="password" required></div>
+        <div class="mb"><button class="btn">Sign Up</button></div>
+        <button class="close"><span class="fa fa-times"></span></button>
+    </form>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.14.1/jquery-ui.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.17/jquery.bxslider.min.js"></script>
 <script>
 "use strict";
 $(function(){
@@ -463,10 +495,65 @@ $(function(){
         $(".collapse").slideUp();
         $(".menu").removeClass("active");
     })
+   };
+
+
+   $(".signup").on("click",function(){
+        $('body').append(`<div class="overlay"></div>`);
+        $('body').css({"overflow-y":"hidden"});
+        $('body').append(`<div class="model"></div>`);
+        $(".model").append($(".modelform").html());
+        $(".model input:eq(0)").focus()
+        
+
+        function closeModel(){
+            $(".model,.overlay").remove();
+            $('body').css({"overflow-y":"auto"});
+        }
+
+        $(".model .close").click(closeModel);
+        $(window).keyup(function(e){if(e.which==27){ closeModel() }})
+
+   });
+
+
+//    $("#date").datepicker({ minDate: -20, maxDate: "+1M +10D"});
+
+
+/* 
+setInterval(()=>{
+    let current=$(".review.active").index();
+    let next=current+1;
+    let t=$(".review").length;
+
+   if(next<t){
+    $(".review").fadeOut(0);
+    $(`.review:eq(${next})`).fadeIn();
+    $(".review").removeClass("active");
+    $(`.review:eq(${next})`).addClass("active");
+    $("ul.pager a").removeClass("active");
+    $(`ul.pager li:eq(${next}) a`).addClass("active");
+   }
+   else{
+    $(".review").fadeOut(0);
+    $(`.review:eq(0)`).fadeIn();
+    $(".review").removeClass("active");
+    $(`.review:eq(0)`).addClass("active");
+    $("ul.pager a").removeClass("active");
+    $(`ul.pager li:eq(0) a`).addClass("active"); 
    }
 
+},5000); */
 
-    
+
+$(".reviews").bxSlider({
+    auto:true,
+    controls:false,
+    pause: 5000,
+    autoHover:true
+});
+
+
 
 });
 </script>
